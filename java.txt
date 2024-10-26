@@ -1,0 +1,128 @@
+Graded 1:
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=0;
+        for (int i=1;i<(n+1);i++){
+            sum=sum+sum+(i*i);
+            System.out.println(sum);
+        }
+        System.out.print(sum);
+    }
+}
+
+----------------------------------------------------------------
+import java.util.Scanner;
+
+class Employee{
+	    String ename;
+	    String eid;
+	    String edept;
+	    
+	    public Employee(){
+		        ename = "guest";
+	    }
+        public Employee(String a, String b, String c){
+            ename=a;
+            eid=b;
+            edept=c;
+        }
+        public void copyDept(Employee emp){
+            edept=emp.edept;
+        }
+        public void displayDetails(){
+            System.out.println("ename: "+ ename);
+            System.out.println("ename: "+ eid);
+            System.out.println("ename: "+ edept);
+        }
+}
+public class Main 
+{
+	    public static void main(String args[]) 
+	    {
+		        Scanner s = new Scanner(System.in);
+		        Employee e1 = new Employee();
+		
+		        //Enter name of the employee
+		        String name = s.nextLine();
+		
+		        //Enter id of the employee
+		        String id = s.nextLine();
+		
+		        //Enter department of the employee
+		        String dept = s.nextLine();
+		
+		        Employee e2 = new Employee(name,id,dept);
+		
+		        e1.copyDept(e2); 
+		        //Copies the department name of e2 into e1's department name.
+		
+		        e1.displayDetails();
+	    }
+}
+------------------------------------------------------------
+import java.lang.management.PlatformManagedObject;
+import java.util.*;
+
+class Employee
+{
+    String eid;
+    String ename;
+    String eprojects[];
+ //Define all the required methods here
+public void mutator()
+    {
+        this.ename = "Mr "+ this.ename;
+        this.eprojects[0] = null;
+    }
+public  Employee(String id, String name, String [] project){
+    eid=id;
+    ename=name;
+    eprojects=project;
+}
+public  Employee(Employee emp){
+    eid=emp.eid;
+    ename=emp.ename;
+    eprojects=new String[emp.eprojects.length];
+    for (int i=0;i<emp.eprojects.length;i++){
+        eprojects[i]=emp.eprojects[i];
+    }
+    
+}
+public void display(){
+    /*id:e009
+    name:Nadia
+    projects:
+    P001:P002:P003: */
+    System.out.println("id:"+eid);
+    System.out.println("name:"+ename);
+    System.out.print("projects: ");
+        for (String project : eprojects) {
+            System.out.print(project + ":");
+        }
+    
+}
+}
+public class Main
+{
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+    	String project[] = {"P001","P002","P003"};
+        //Enter the id of employee
+        String id = s.nextLine();
+        //Enter the name of employee
+        String name = s.nextLine();
+        
+        Employee e1 = new Employee(id,name,project);
+        Employee e2 = new Employee(e1); 
+        //The copy constructor must copy all the data members. 
+       
+        e1.mutator();
+        
+        e2.display();
+    }
+}
+-------------------------------------
